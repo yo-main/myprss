@@ -5,7 +5,7 @@ import click
 URL_TEMPLATE = r"\e]8;;{url}\a{title}\e]8;;\a"
 
 def info(msg):
-    click.echo(click.wrap_text(msg))
+    click.echo(msg)
 
 
 def error(msg):
