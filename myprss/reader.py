@@ -6,7 +6,9 @@ from myprss.config import Config
 from myprss.parser import parse_rss_content
 
 
-@click.command("read", help="Read a rss feed")
+@click.command(
+    "read", help="Read a rss feed", no_args_is_help=True, options_metavar=""
+)
 @click.argument("name")
 def read_feed(name):
     config = Config()

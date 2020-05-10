@@ -6,7 +6,7 @@ from myprss.registry import registry
 # echo -e '\e]8;;http://example.com\aThis is a link\e]8;;\a'
 
 
-@click.group()
+@click.group(options_metavar="")
 def cli():
     pass
 

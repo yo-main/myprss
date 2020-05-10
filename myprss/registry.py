@@ -4,12 +4,17 @@ from myprss import logger
 from myprss.config import Config
 
 
-@click.group("registry", help="Manage your list of rss feed")
+@click.group("registry", help="Manage your list of rss feeds")
 def registry():
     pass
 
 
-@registry.command("add", no_args_is_help=True, options_metavar="")
+@registry.command(
+    "add",
+    help="Add a rss feed to the registry",
+    no_args_is_help=True,
+    options_metavar="",
+)
 @click.argument("name", required=True)
 @click.argument("url", required=True)
 def register_new_feed(name, url):
@@ -19,7 +24,7 @@ def register_new_feed(name, url):
     logger.info(f"{name} has been added to the rss registry")
 
 
-@registry.command("list")
+@registry.command("list", help="List all saved rss feeds")
 def list_all_feed():
     config = Config()
 
@@ -36,7 +41,12 @@ def list_all_feed():
         logger.info(f"{name:{max_name_size}}\t| {url}")
 
 
-@registry.command("delete", no_args_is_help=True, options_metavar="")
+@registry.command(
+    "delete",
+    help="Delete a rss feed from the registry",
+    no_args_is_help=True,
+    options_metavar="",
+)
 @click.argument("name", required=True)
 def delete_feed(name):
     config = Config()
