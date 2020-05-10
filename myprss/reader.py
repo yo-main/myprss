@@ -4,7 +4,7 @@ import requests
 from myprss import logger
 from myprss.config import Config
 from myprss.parser import parse_rss_content
-from myprss.utils import list_known_feeds
+from myprss.utils import list_known_feeds, parse_from_date_to_rfc822_with_tz
 
 
 @click.command(
@@ -32,7 +32,7 @@ def read_feed(name, verbose):
     logger.info("")
 
     for item in reversed(content["items"]):
-        logger.info(item["date"])
+        logger.info(parse_from_date_to_rfc822_with_tz(item["date"]))
         logger.link(item["url"], item["title"])
         if verbose:
             logger.paragraph(item["description"])

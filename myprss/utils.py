@@ -8,5 +8,8 @@ def list_known_feeds(ctx, args, incomplete):
     return list(config.data["registry"].keys())
 
 
-def parse_rfc822_date(date):
-    return parsedate_to_datetime(date).astimezone().strftime("%a, %d %b %Y %H:%M:%S")
+def parse_from_rfc822_to_date(date):
+    return parsedate_to_datetime(date)
+
+def parse_from_date_to_rfc822_with_tz(date):
+    return date.astimezone().strftime("%a, %d %b %Y %H:%M:%S")
