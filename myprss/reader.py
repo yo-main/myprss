@@ -1,9 +1,9 @@
 import click
 import requests
 
-from src import logger
-from src.config import Config
-from src.parser import parse_rss_content
+from myprss import logger
+from myprss.config import Config
+from myprss.parser import parse_rss_content
 
 
 @click.command("read", help="Read a rss feed")

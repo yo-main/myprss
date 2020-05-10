@@ -3,7 +3,7 @@ import sys
 
 import toml
 
-from src import logger
+from myprss import logger
 
 
 CONFIG_FILE_PATH = "~/.myprss"

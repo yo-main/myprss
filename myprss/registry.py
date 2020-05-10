@@ -1,7 +1,7 @@
 import click
 
-from src import logger
-from src.config import Config
+from myprss import logger
+from myprss.config import Config
 
 
 @click.group("registry", help="Manage your list of rss feed")

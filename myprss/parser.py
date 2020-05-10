@@ -1,6 +1,6 @@
 from defusedxml.ElementTree import XML
 
-from src import logger
+from myprss import logger
 
 
 def parse_rss_content(data):
