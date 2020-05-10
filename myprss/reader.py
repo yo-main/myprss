@@ -28,6 +28,7 @@ def read_feed(name):
     content = parse_rss_content(response.content)
 
     logger.info(content["site"])
+    logger.info("")
 
     for item in reversed(content["items"]):
         logger.info(item["date"])
