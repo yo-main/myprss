@@ -4,7 +4,7 @@ A small reader for rss feeds.
 
 I find rss feeds quite convenient to read news or other stuff.
 
-This small utility will allows you to manage your favorites rss feeds and read them.
+This small tool will allow you to manage your favorites rss feeds and read them.
 
 In order to display hyperlinks in a beautiful way, myprss is using a feature that might not be available in all terminal.
 
