@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "myprss"
-version = "0.1.3"
+version = "0.1.4"
 description = "rss reader for terminal"
 authors = ["rarnal <arnal.romain@gmail.com>"]
 

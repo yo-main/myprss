@@ -6,7 +6,8 @@ import toml
 from myprss import logger
 
 
-CONFIG_FILE_PATH = "~/.myprss"
+CONFIG_DIR_PATH = os.path.expanduser("~/.config/myprss")
+CONFIG_FILE_PATH = os.path.join(CONFIG_DIR_PATH, "config.toml")
 
 
 class ConfigMeta(type):
@@ -24,7 +25,11 @@ class Config(metaclass=ConfigMeta):
     """Class that contains the application settings"""
 
     def __init__(self, config_file=CONFIG_FILE_PATH):
-        self.config_file = os.path.expanduser(config_file)
+        if not os.path.exists(CONFIG_DIR_PATH):
+            os.makedirs(CONFIG_DIR_PATH, mode=0o774)
+
+        self.config_file = config_file
+        print(self.config_file)
         self.data = self._load_config()
 
     def _load_config(self):
