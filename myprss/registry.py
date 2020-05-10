@@ -35,11 +35,11 @@ def list_all_feed():
 
     max_name_size = max(len(name) for name in config.data["registry"].keys())
 
-    titles = f"{'NAME':{max_name_size}}\t| URL"
+    titles = f"{'NAME':<{max_name_size}}    URL"
 
     logger.info(titles)
     for name, url in config.data["registry"].items():
-        logger.info(f"{name:{max_name_size}}\t| {url}")
+        logger.info(f"{name:<{max_name_size}}    {url}")
 
 
 @registry.command(

@@ -2,6 +2,8 @@ import os
 
 import click
 
+from myprss.config import Config
+
 URL_TEMPLATE = r"\e]8;;{url}\a{title}\e]8;;\a"
 
 def info(msg):
@@ -17,6 +19,11 @@ def paragraph(msg):
 
 
 def link(url, title):
-    string = URL_TEMPLATE.format(url=url, title=click.wrap_text(title))
-    string = string.replace('"', "")
-    os.system(f'echo -e "{string}"')
+    config = Config()
+
+    if config.data["settings"]["hyperlink"]:
+        string = URL_TEMPLATE.format(url=url, title=click.wrap_text(title))
+        string = string.replace('"', "")
+        os.system(f'echo -e "{string}"')
+    else:
+        click.echo(f"{title}\n  {url}")
