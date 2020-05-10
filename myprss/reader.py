@@ -7,9 +7,7 @@ from myprss.parser import parse_rss_content
 from myprss.utils import list_known_feeds, parse_from_date_to_rfc822_with_tz
 
 
-@click.command(
-    "read", help="Read a rss feed", no_args_is_help=True
-)
+@click.command("read", help="Read a rss feed", no_args_is_help=True)
 @click.option("-v", "--verbose", default=False, is_flag=True)
 @click.argument("name", autocompletion=list_known_feeds)
 def read_feed(name, verbose):

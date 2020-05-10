@@ -11,6 +11,7 @@ from myprss.config import settings
 def cli():
     pass
 
+
 cli.add_command(registry)
 cli.add_command(read_feed)
 cli.add_command(settings)

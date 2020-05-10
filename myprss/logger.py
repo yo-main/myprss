@@ -6,6 +6,7 @@ from myprss.config import Config
 
 URL_TEMPLATE = r"\e]8;;{url}\a{title}\e]8;;\a"
 
+
 def info(msg):
     click.echo(msg)
 
@@ -15,6 +16,7 @@ def error(msg):
 
 
 def paragraph(msg):
+    msg = msg.replace("&nbsp;", " ")
     click.echo(click.wrap_text(msg, initial_indent=" ", subsequent_indent=" "))
 
 

@@ -10,12 +10,8 @@ from myprss import logger
 CONFIG_DIR_PATH = os.path.expanduser("~/.config/myprss")
 CONFIG_FILE_PATH = os.path.join(CONFIG_DIR_PATH, "config.toml")
 
-DEFAULT_CONFIG = {
-    "registry": {},
-    "settings": {
-        "hyperlink": True,
-    }
-}
+DEFAULT_CONFIG = {"registry": {}, "settings": {"hyperlink": True,}}
+
 
 class ConfigMeta(type):
     """Metaclass that makes our Config a singleton"""
@@ -73,12 +69,15 @@ class Config(metaclass=ConfigMeta):
 
         return True, ""
 
+
 @click.group("settings", help="Manage myprss settings")
 def settings():
     pass
 
 
-@settings.command("update", help="Update a configuration option", no_args_is_help=True)
+@settings.command(
+    "update", help="Update a configuration option", no_args_is_help=True
+)
 @click.option("--hyperlink", default=None, type=bool)
 def update_config(**kwargs):
     config = Config()
@@ -97,7 +96,11 @@ def update_config(**kwargs):
     logger.info("Configuration settings have been succesfully updated")
 
 
-@settings.command("list", help="List all configuration settings and their values", options_metavar="")
+@settings.command(
+    "list",
+    help="List all configuration settings and their values",
+    options_metavar="",
+)
 def list_all_settings():
     config = Config()
     max_size_option = len(max(config.data["settings"], key=len))
@@ -105,6 +108,3 @@ def list_all_settings():
     logger.info("Current configuration settings\n")
     for option, value in config.data["settings"].items():
         logger.info(f"{option:>{max_size_option}}    {value}")
-
-
-
