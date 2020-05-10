@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "myprss"
-version = "0.1.11"
+version = "0.1.12"
 description = "rss reader for terminal"
 authors = ["rarnal <arnal.romain@gmail.com>"]
 
@@ -17,9 +17,6 @@ pylint = "^2.5.2"
 
 [tool.black]
 line-length = 79
-
-[tool.poetry.scripts]
-rss = "myprss.main:cli"
 
 [build-system]
 requires = ["poetry>=0.12"]
