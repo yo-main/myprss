@@ -2,6 +2,7 @@ import click
 
 from myprss import logger
 from myprss.config import Config
+from myprss.utils import list_known_feeds
 
 
 @click.group("registry", help="Manage your list of rss feeds")
@@ -47,7 +48,7 @@ def list_all_feed():
     no_args_is_help=True,
     options_metavar="",
 )
-@click.argument("name", required=True)
+@click.argument("name", required=True, autocompletion=list_known_feeds)
 def delete_feed(name):
     config = Config()
     if name not in config.data["registry"]:

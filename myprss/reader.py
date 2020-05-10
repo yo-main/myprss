@@ -4,12 +4,13 @@ import requests
 from myprss import logger
 from myprss.config import Config
 from myprss.parser import parse_rss_content
+from myprss.utils import list_known_feeds
 
 
 @click.command(
     "read", help="Read a rss feed", no_args_is_help=True, options_metavar=""
 )
-@click.argument("name")
+@click.argument("name", autocompletion=list_known_feeds)
 def read_feed(name):
     config = Config()
 
