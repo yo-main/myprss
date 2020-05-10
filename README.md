@@ -6,6 +6,13 @@ I find rss feeds quite convenient to read news or other stuff.
 
 This small tool will allow you to manage your favorites rss feeds and read them.
 
+## Installation
+To install, run
+```
+pip install myprss
+```
+
+## To know
 In order to display hyperlinks in a beautiful way, myprss is using a feature that might not be available in all terminal.
 
 myprss is using click as an argument parser, so it's quite easy to add autocompletion for your shell.
