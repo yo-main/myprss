@@ -1,6 +1,7 @@
 from defusedxml.ElementTree import XML
 
 from myprss import logger
+from myprss.utils import parse_rfc822_date
 
 
 def parse_rss_content(data):
@@ -20,11 +21,13 @@ def parse_rss_content(data):
     for item in channel.findall("item"):
         data["items"].append(
             {
-                "date": item.find("pubDate").text,
+                "date": parse_rfc822_date(item.find("pubDate").text),
                 "title": item.find("title").text,
                 "url": item.find("link").text,
                 "description": item.find("description").text,
             }
         )
+
+    data["items"].sort(key=lambda x: x["date"], reverse=True)
 
     return data

@@ -8,10 +8,11 @@ from myprss.utils import list_known_feeds
 
 
 @click.command(
-    "read", help="Read a rss feed", no_args_is_help=True, options_metavar=""
+    "read", help="Read a rss feed", no_args_is_help=True
 )
+@click.option("-v", "--verbose", default=False, is_flag=True)
 @click.argument("name", autocompletion=list_known_feeds)
-def read_feed(name):
+def read_feed(name, verbose):
     config = Config()
 
     if name not in config.data["registry"]:
@@ -33,5 +34,6 @@ def read_feed(name):
     for item in reversed(content["items"]):
         logger.info(item["date"])
         logger.link(item["url"], item["title"])
-        # logger.paragraph(item["description"])
+        if verbose:
+            logger.paragraph(item["description"])
         logger.info("")
