@@ -3,7 +3,8 @@ import click
 from src import logger
 from src.config import Config
 
-@click.group("registry", help="Manage your list of rss flux")
+
+@click.group("registry", help="Manage your list of rss feed")
 def registry():
     pass
 
@@ -11,7 +12,7 @@ def registry():
 @registry.command("add", no_args_is_help=True, options_metavar="")
 @click.argument("name", required=True)
 @click.argument("url", required=True)
-def register_new_flux(name, url):
+def register_new_feed(name, url):
     config = Config()
     config.data["registry"][name] = url
     config.save()
@@ -19,7 +20,7 @@ def register_new_flux(name, url):
 
 
 @registry.command("list")
-def list_all_flux():
+def list_all_feed():
     config = Config()
 
     if not config.data["registry"]:
@@ -37,7 +38,7 @@ def list_all_flux():
 
 @registry.command("delete", no_args_is_help=True, options_metavar="")
 @click.argument("name", required=True)
-def delete_flux(name):
+def delete_feed(name):
     config = Config()
     if name not in config.data["registry"]:
         logger.error(f"{name} is unknown")

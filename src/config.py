@@ -11,6 +11,7 @@ CONFIG_FILE_PATH = "~/.myprss"
 
 class ConfigMeta(type):
     """Metaclass that makes our Config a singleton"""
+
     _instance = None
 
     def __call__(cls):
@@ -21,6 +22,7 @@ class ConfigMeta(type):
 
 class Config(metaclass=ConfigMeta):
     """Class that contains the application settings"""
+
     def __init__(self, config_file=CONFIG_FILE_PATH):
         self.config_file = os.path.expanduser(config_file)
         self.data = self._load_config()
