@@ -32,5 +32,5 @@ def read_feed(name):
     for item in reversed(content["items"]):
         logger.info(item["date"])
         logger.link(item["url"], item["title"])
-        logger.paragraph(item["description"])
+        # logger.paragraph(item["description"])
         logger.info("")
