@@ -29,7 +29,6 @@ class Config(metaclass=ConfigMeta):
             os.makedirs(CONFIG_DIR_PATH, mode=0o774)
 
         self.config_file = config_file
-        print(self.config_file)
         self.data = self._load_config()
 
     def _load_config(self):
