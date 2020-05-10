@@ -29,5 +29,6 @@ def parse_rss_content(data):
         )
 
     data["items"].sort(key=lambda x: x["date"], reverse=True)
+    data["items"] = data["items"][:50]
 
     return data
