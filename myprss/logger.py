@@ -24,6 +24,6 @@ def link(url, title):
     if config.data["settings"]["hyperlink"]:
         string = URL_TEMPLATE.format(url=url, title=click.wrap_text(title))
         string = string.replace('"', "")
-        os.system(f'echo -e "{string}"')
+        os.system(f'echo "{string}"')
     else:
         click.echo(f"{title}\n  {url}")
