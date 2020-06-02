@@ -12,9 +12,16 @@ To install, run
 pip install myprss
 ```
 
-## To know
-In order to display hyperlinks in a beautiful way, myprss is using a feature that might not be available in all terminal.
+## Tips
 
+### hyperlink
+In order to display url as hyperlinks, myprss is using a feature that might not be available in all terminal.
+This can be disabled by running
+```
+myprss settings update --hyperlink false
+```
+
+### shell completion
 myprss is using click as an argument parser, so it's quite easy to add autocompletion for your shell.
 Documentation is available here: https://click.palletsprojects.com/en/7.x/bashcomplete/#shell-completion
 
